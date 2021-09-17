@@ -2,6 +2,8 @@
 
 Browser-based app for evaluating and comparing clothing outfits in The Long Dark.
 
+View live app: `https://brisberg.dev/tld-outfitter/`
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
 
 ## Development server
