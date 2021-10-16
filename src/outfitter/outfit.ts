@@ -1,11 +1,36 @@
 import {Gear} from './gear';
 
-/** Complete gear outfit. */
+/**
+ * Complete gear outfit.
+ *
+ * TODO: Should probably rework this to add/remove gear by Index, and have
+ * hardcoded Slot -> Index map. That way users can add/remove specific slots.
+ */
 export class Outfit {
   constructor(
       public name = '',
-      public gear: Gear[],
+      public gear: Gear[] = [],
   ) {}
+
+  /** Adds the given Gear item to the Outfit. */
+  add(gear: Gear): void {
+    this.gear.push(gear);
+  }
+
+  /**
+   * Removes the given Gear item from the Outfit.
+   *
+   * @param gear item to remove
+   * @returns false if this Outfit does not contain the Item.
+   */
+  remove(gear: Gear): boolean {
+    const idx = this.gear.findIndex((g) => g === gear);
+
+    if (idx === -1) return false;
+
+    this.gear.splice(idx, 1);
+    return true;
+  }
 
   /** Gear represents a valid outfit configuration. */
   get valid(): boolean {
