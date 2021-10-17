@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Outfit} from 'src/outfitter/outfit';
+import {SimpleHat, SimpleJacket} from 'src/outfitter/testing/gear-data';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tld-outfitter';
+  outfit = new Outfit('', [SimpleJacket, SimpleHat]);
 }
