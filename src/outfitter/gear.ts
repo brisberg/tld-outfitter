@@ -10,7 +10,7 @@ export interface Gear {
   /** Degrees (C) of warmth provided. */
   warmth: number;
   /** Degrees (C) resistance to wind chill. */
-  windChill: number;
+  windproof: number;
   /** Resistance to water from storms. */
   waterproof: number;
   /** Physical protection. */

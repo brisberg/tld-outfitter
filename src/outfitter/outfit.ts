@@ -39,12 +39,15 @@ export class Outfit {
 
   /** Total warmth bonus of the outfit. (when dry) */
   get warmth(): number {
-    throw new Error('Unimplemented');
+    return this.gear.reduce((total, gear) => total + gear.warmth, 0);
   }
 
   /** Total wind chill resistance of the outfit. (when dry) */
-  get windChill(): number {
-    throw new Error('Unimplemented');
+  get windproof(): number {
+    if (this.gear.length === 0) return 0;
+
+    // TODO: Actually calculate outer layers
+    return this.gear[0].windproof;
   }
 
   /**
@@ -54,22 +57,28 @@ export class Outfit {
    * item will gain wetness individually based on its waterproof value.
    */
   get waterproof(): number {
-    throw new Error('Unimplemented');
+    if (this.gear.length === 0) return 0;
+
+    // TODO: Actually calculate outer layers
+    return this.gear[0].waterproof;
   }
 
   /** Total protection provided by this outfit. */
   get protection(): number {
-    throw new Error('Unimplemented');
+    if (this.gear.length === 0) return 0;
+
+    // TODO: Actually calculate outer layers
+    return this.gear[0].protection;
   }
 
   /** Total mobility penalty suffered by this outfit. */
   get mobility(): number {
-    throw new Error('Unimplemented');
+    return this.gear.reduce((total, gear) => total + gear.mobility, 0);
   }
 
   /** Total weight of this outfit. */
   get weight(): number {
-    throw new Error('Unimplemented');
+    return this.gear.reduce((total, gear) => total + gear.weight, 0);
   }
 
   /** True is any of gear is only available in Wintermute (Story Mode). */
@@ -86,6 +95,6 @@ export class Outfit {
    * True if all items of this outfit are available on Interloper difficulty.
    */
   get interloper(): boolean {
-    throw new Error('Unimplemented');
+    return this.gear.every((gear) => gear.interloper);
   }
 }
