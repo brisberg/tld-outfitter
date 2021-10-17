@@ -74,7 +74,7 @@ export class Outfit {
 
   /** True is any of gear is only available in Wintermute (Story Mode). */
   get wintermute(): boolean {
-    throw new Error('Unimplemented');
+    return this.gear.some((gear) => gear.wintermute);
   }
 
   /** Highest rarity of any item included in the outfit. */

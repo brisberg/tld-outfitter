@@ -34,11 +34,17 @@ describe('Outfit', () => {
 
   describe('Wintermute', () => {
     it('should be true if any item is story limited', () => {
-      return;
+      outfit = new Outfit('', [SimpleJacket]);
+      const storyHat: Gear = {...SimpleHat, wintermute: true};
+      outfit.add(storyHat);
+
+      expect(outfit.wintermute).toBeTrue();
     });
 
     it('should be false if no item is story limited', () => {
-      return;
+      outfit = new Outfit('', [SimpleJacket]);
+
+      expect(outfit.wintermute).toBeFalse();
     });
   });
 });
