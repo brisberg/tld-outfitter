@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {Outfit} from 'src/outfitter/outfit';
 import {SimpleHat, SimpleJacket} from 'src/outfitter/testing/gear-data';
+import {AppModule} from '../app.module';
 
 import {OutfitPanelComponent} from './outfit-panel.component';
 import {OutfitPanelHarness} from './testing/outfit-panel.harness';
@@ -11,7 +12,11 @@ describe('OutfitPanelComponent', () => {
   let harness: OutfitPanelHarness;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({declarations: [OutfitPanelComponent]})
+    await TestBed
+        .configureTestingModule({
+          imports: [AppModule],
+          declarations: [OutfitPanelComponent],
+        })
         .compileComponents();
   });
 
